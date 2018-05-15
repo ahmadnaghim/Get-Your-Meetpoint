@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "234591809958",
+    "firebase_url": "https://natural-potion-203006.firebaseio.com",
+    "project_id": "natural-potion-203006",
+    "storage_bucket": "natural-potion-203006.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:234591809958:android:f81fe41dc9af33d5",
+        "android_client_info": {
+          "package_name": "com.example.ahmadnaghimfp.weatheraroundyou"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "234591809958-sh2juhrqm5gr3vjk0ah5oe4d1hdh06dt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ahmadnaghimfp.weatheraroundyou",
+            "certificate_hash": "6c68dda50d94e6b85aa1a5d181051b8892bc3772"
+          }
+        },
+        {
+          "client_id": "234591809958-gjdgnqondt9r57qhdk8n2okuqlbgq42o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDd15CjYMSTVISk0zr0XJftW6KKWO7aTHw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "234591809958-gjdgnqondt9r57qhdk8n2okuqlbgq42o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
