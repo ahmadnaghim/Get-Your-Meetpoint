@@ -15,16 +15,15 @@
 
     <Button
         android:id="@+id/button_meet_point"
-        android:background="@color/colorPrimary"
-        android:layout_marginLeft="260px"
-        android:padding="15px"
-        android:textColor="#ffffff"
+        style="@style/Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find MeetPoint"/>
+        android:layout_marginLeft="260px"
+        android:padding="15px"
+        android:text="Find MeetPoint" />
 
     <View
         android:layout_width="wrap_content"
-        android:layout_height="40px"/>
+        android:layout_height="40px" />
 
 </LinearLayout>

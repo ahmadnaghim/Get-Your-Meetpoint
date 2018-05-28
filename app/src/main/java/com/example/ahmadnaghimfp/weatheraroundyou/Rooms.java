@@ -28,12 +28,16 @@ public class Rooms extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_rooms);
         userIDList = findViewById(R.id.list_user);
         findMeetPoint = findViewById(R.id.button_meet_point);
         dataLala = FirebaseDatabase.getInstance().getReference().child(JoinRoom.roomCode).child("Name");
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, mName);
         userIDList.setAdapter(arrayAdapter);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         dataLala.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
