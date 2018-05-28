@@ -1,5 +1,6 @@
 package com.example.ahmadnaghimfp.weatheraroundyou;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -80,9 +81,17 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.create_room)
+        {
+
+            Intent intent = new Intent(this, CreateRoom.class);
+            startActivity(intent);
+
+        } else if (id == R.id.join_room)
+        {
+
+            Intent intent = new Intent(this, JoinRoom.class);
+            startActivity(intent);
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -94,7 +103,7 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

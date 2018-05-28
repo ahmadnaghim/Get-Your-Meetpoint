@@ -32,16 +32,31 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps">
+
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CreateRoom"
+            android:parentActivityName=".MainActivity"
+            android:label="Create Room"/>
+        <activity android:name=".SearchRoom"
+            android:label="Search Room"/>
+        <activity android:name=".JoinRoom"
+            android:parentActivityName=".MainActivity"
+            android:label="Join Room"/>
+        <activity android:name=".Rooms"
+            android:label="Rooms"/>
         <activity
-            android:name=".MainActivity"
-            android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:name=".MeetPoint"
+            android:label="@string/title_activity_meet_point"></activity>
     </application>
 
 </manifest>
