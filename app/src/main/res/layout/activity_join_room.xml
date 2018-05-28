@@ -4,6 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".JoinRoom">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Your Code"
+        android:textSize="30dp"
+        android:layout_marginTop="100px"
+        android:layout_marginHorizontal="210px"/>
+
+    <EditText
+        android:id="@+id/user_code"
+        android:layout_margin="148px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Your code"/>
+
+    <Button
+        android:id="@+id/user_code_button"
+        android:textColor="#ffffffff"
+        android:layout_marginLeft="400px"
+        android:background="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter"/>
 
 </LinearLayout>
