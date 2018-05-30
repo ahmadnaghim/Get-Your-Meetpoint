@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity
     public static double latitude, longitude;
     private FusedLocationProviderClient mLocation;
     public static String name;
-    public static double sumlatitude=0, sumlongitude=0, count=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

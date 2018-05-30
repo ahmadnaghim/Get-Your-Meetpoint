@@ -7,32 +7,43 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class DataCoy {
-    private DatabaseReference dataCuy;
-    private DatabaseReference refRoomName;
-    private String xyz;
+    private DatabaseReference dataPertama;
+    private DatabaseReference dataKedua;
+    private DatabaseReference dataKetiga;
 
     DataCoy(){
-        dataCuy= FirebaseDatabase.getInstance().getReference();
-        refRoomName = FirebaseDatabase.getInstance().getReference();
+        dataPertama= FirebaseDatabase.getInstance().getReference();
+        dataKedua = FirebaseDatabase.getInstance().getReference();
+        dataKetiga = FirebaseDatabase.getInstance().getReference();
     }
 
+    public DatabaseReference getDataPertama() {
+        return dataPertama;
+    }
 
+    public DatabaseReference getDataKedua() {
+        return dataKedua;
+    }
+
+    public DatabaseReference getDataKetiga() {
+        return dataKetiga;
+    }
 
     public void joinCode(String s){
-        refRoomName= FirebaseDatabase.getInstance().getReference().child(s).child("Name");
-        refRoomName.push().setValue(MainActivity.name);
+        dataKedua = FirebaseDatabase.getInstance().getReference().child(s).child("Name");
+        dataKedua.push().setValue(MainActivity.name);
 
-        refRoomName= FirebaseDatabase.getInstance().getReference().child(s).child("LatLng").child("Lat");
-        dataCuy = FirebaseDatabase.getInstance().getReference().child(s).child("LatLng").child("Lat").child("SumLat");
-        combineLatLng(dataCuy, refRoomName, "Lat");
+        dataKedua = FirebaseDatabase.getInstance().getReference().child(s).child("LatLng").child("Lat");
+        dataPertama = FirebaseDatabase.getInstance().getReference().child(s).child("LatLng").child("Lat").child("SumLat");
+        combineLatLng(dataPertama, dataKedua, "Lat");
 
-        refRoomName= FirebaseDatabase.getInstance().getReference().child(s).child("LatLng").child("Lng");
-        dataCuy = FirebaseDatabase.getInstance().getReference().child(s).child("LatLng").child("Lng").child("SumLng");
-        combineLatLng(dataCuy, refRoomName, "Lng");
+        dataKedua = FirebaseDatabase.getInstance().getReference().child(s).child("LatLng").child("Lng");
+        dataPertama = FirebaseDatabase.getInstance().getReference().child(s).child("LatLng").child("Lng").child("SumLng");
+        combineLatLng(dataPertama, dataKedua, "Lng");
 
-        refRoomName=FirebaseDatabase.getInstance().getReference().child(s).child("UserCount");
-        dataCuy = FirebaseDatabase.getInstance().getReference().child(s).child("UserCount").child("Count");
-        countUser(dataCuy, refRoomName);
+        dataKedua =FirebaseDatabase.getInstance().getReference().child(s).child("UserCount");
+        dataPertama = FirebaseDatabase.getInstance().getReference().child(s).child("UserCount").child("Count");
+        countUser(dataPertama, dataKedua);
     }
 
     public void combineLatLng(DatabaseReference ayoCoy, DatabaseReference dataKedua, String type){
@@ -49,12 +60,12 @@ public class DataCoy {
                 }
                 else{
                     if(type=="Lat"){
-                        Double x = dataSnapshot.getValue(Double.class);
+                        double x = dataSnapshot.getValue(Double.class);
                         x+=MainActivity.latitude;
                         dataKedua.child("SumLat").setValue(x);
                     }
                     else{
-                        Double x = dataSnapshot.getValue(Double.class);
+                        double x = dataSnapshot.getValue(Double.class);
                         x+=MainActivity.longitude;
                         dataKedua.child("SumLng").setValue(x);
                     }
@@ -77,7 +88,7 @@ public class DataCoy {
                     lalaCoy.child("Count").setValue(x);
                 }
                 else{
-                    Double x = dataSnapshot.getValue(Double.class);
+                    double x = dataSnapshot.getValue(Double.class);
                     lalaCoy.child("Count").setValue(x+1);
                 }
             }
@@ -90,37 +101,8 @@ public class DataCoy {
     }
 
     public void MeetPoint(){
-        refRoomName = FirebaseDatabase.getInstance().getReference().child(JoinRoom.roomCode).child("LatLng").child("Lat").child("SumLat");
-        takeValueLatLng(refRoomName, "Lat");
-        refRoomName = FirebaseDatabase.getInstance().getReference().child(JoinRoom.roomCode).child("LatLng").child("Lng").child("SumLng");
-        takeValueLatLng(refRoomName, "Lng");
-        refRoomName = FirebaseDatabase.getInstance().getReference().child(JoinRoom.roomCode).child("UserCount").child("Count");
-        takeValueLatLng(refRoomName, "Count");
-        MainActivity.sumlatitude/=MainActivity.count;
-        MainActivity.sumlongitude/=MainActivity.count;
-    }
-
-    private void takeValueLatLng(DatabaseReference refCoy, String type){
-        refCoy.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Double x = dataSnapshot.getValue(Double.class);
-                if(type=="Lat"){
-                    MainActivity.sumlatitude=x;
-                }
-                else if (type=="Lng"){
-                    MainActivity.sumlongitude=x;
-                }
-                else{
-                    MainActivity.count=x;
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
+        dataPertama = FirebaseDatabase.getInstance().getReference().child(JoinRoom.roomCode).child("LatLng").child("Lat").child("SumLat");
+        dataKedua = FirebaseDatabase.getInstance().getReference().child(JoinRoom.roomCode).child("LatLng").child("Lng").child("SumLng");
+        dataKetiga = FirebaseDatabase.getInstance().getReference().child(JoinRoom.roomCode).child("UserCount").child("Count");
     }
 }
